@@ -179,4 +179,4 @@ Dockerize
 
 Add swagger API documentation 
 
-Authentication, user sessions. 
+Authentication, user sessions.
