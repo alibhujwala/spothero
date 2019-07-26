@@ -16,25 +16,16 @@ $ pip install -r requirements.txt
 ## Run Flask
 ### Run flask for develop
 ```
-$ python app.py
-```
-In flask, Default port is `5000`
+(spothero) ➜  spothero git:(master) ✗ python app.py 
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 
 ```
-$ gunicorn -w 4 -b 127.0.0.1:5000 run:app
 
-```
-### Run flask for production
-
-** Run with gunicorn **
-
-In  spothero/
-```
-$ gunicorn -w 4 -b 127.0.0.1:5000 run:app
-
-```
-* -w : number of worker
-* -b : Socket to bind
 ## Testing
 ** Run in terminal **
 
