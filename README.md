@@ -1,6 +1,11 @@
-###SpotHero Example App
+### SpotHero Example App
 
 ## Installation
+
+Supports python 3.6+
+
+Recommended: Create virtual ENV
+
 Install with pip:
 
 ```
@@ -10,11 +15,10 @@ $ pip install -r requirements.txt
 ## Run Flask
 ### Run flask for develop
 ```
-$ python webapp/run.py
+$ python app.py
 ```
 In flask, Default port is `5000`
 
-Swagger document page:  `http://127.0.0.1:5000/api`
 ```
 $ gunicorn -w 4 -b 127.0.0.1:5000 run:app
 
