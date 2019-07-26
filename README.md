@@ -61,13 +61,14 @@ Parameters: TO, FROM; Valid ISO-8601
 Available Request Example: 
 
 ```
->>> requests.get("http://bhuj2000.pythonanywhere.com/rates?to=2015-07-01T07:00:00-05:00&from=2015-07-01T12:00:00-05:00")
-
+>>> requests.get("http://bhuj2000.pythonanywhere.com/rates?from=2015-07-01T07:00:00-05:00&to=2015-07-01T12:00:00-05:00").text
 u'1750'
+>>> requests.get("http://bhuj2000.pythonanywhere.com/rates?from=2015-07-04T15:00:00+00:00&to=2015-07-04T20:00:00+00:00").text
+u'2000'
 ````
 Unavailable Request Example:
 ```
->>> requests.get("http://bhuj2000.pythonanywhere.com/rates?to=2015-07-03T07:00:00-05:00&from=2015-07-01T12:00:00-05:00").text
+>>> requests.get("http://bhuj2000.pythonanywhere.com/rates?from=2015-07-01T12:00:00-05:00$to=2015-07-03T07:00:00-05:00").text
 u'unavailable'
 ```
 Bad Request Example: 
