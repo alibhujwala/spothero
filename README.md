@@ -67,13 +67,15 @@ u'1750'
 ````
 Unavailable Request Example:
 ```
->>> requests.get("http://bhuj2000.pythonanywhere.com/rates?to=2015-07-01T07:00:00-05:00&from=2015-07-02T12:00:00-05:00").text
+>>> requests.get("http://bhuj2000.pythonanywhere.com/rates?to=2015-07-03T07:00:00-05:00&from=2015-07-01T12:00:00-05:00").text
 u'unavailable'
 ```
 Bad Request Example: 
 ```
 >>> requests.get("http://bhuj2000.pythonanywhere.com/rates?to=2015-07-01T07:00:00-05:00&from=2015-07-01T12:00:").text
-u'{"error":"start, end query parameters must be in valid ISO-8601 dates"}\n'
+u'{"error":"from, to query parameters must be in valid ISO-8601 dates"}\n'
+>>> requests.get("http://127.0.0.1:5000/rates?to=2015-07-01T07:00:00-05:00&from=2015-07-02T12:00:00-05:00").text
+u'{"error":"to datetime must be after from datetime"}\n'
 ```
 
 #### POST:

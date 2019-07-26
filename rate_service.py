@@ -79,7 +79,10 @@ def validate_dates(start_datestring, end_datestring):
         start_utc_datetime = dateutil.parser.parse(start_datestring.replace(' ', '+')).astimezone(pytz.utc)
         end_utc_datetime = dateutil.parser.parse(end_datestring.replace(' ', '+')).astimezone(pytz.utc)
     except:
-        raise InvalidData("start, end query parameters must be in valid ISO-8601 dates")
+        raise InvalidData("from, to query parameters must be in valid ISO-8601 dates")
+
+    if start_utc_datetime >= end_utc_datetime:
+        raise InvalidData("to datetime must be after from datetime")
 
     return start_utc_datetime, end_utc_datetime
 
