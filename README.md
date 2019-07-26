@@ -1,5 +1,6 @@
 ### SpotHero Example App
 
+Live Example App: http://bhuj2000.pythonanywhere.com
 ## Installation
 
 Supports python 3.6+
@@ -69,18 +70,18 @@ Parameters: TO, FROM; Valid ISO-8601
 Available Request Example: 
 
 ```
->>> requests.get("http://127.0.0.1:5000/rates?to=2015-07-01T07:00:00-05:00&from=2015-07-01T12:00:00-05:00")
+>>> requests.get("http://bhuj2000.pythonanywhere.com/rates?to=2015-07-01T07:00:00-05:00&from=2015-07-01T12:00:00-05:00")
 
 u'1750'
 ````
 Unavailable Request Example:
 ```
->>> requests.get("http://127.0.0.1:5000/rates?to=2015-07-01T07:00:00-05:00&from=2015-07-02T12:00:00-05:00").text
+>>> requests.get("http://bhuj2000.pythonanywhere.com/rates?to=2015-07-01T07:00:00-05:00&from=2015-07-02T12:00:00-05:00").text
 u'unavailable'
 ```
 Bad Request Example: 
-```angular2
->>> requests.get("http://127.0.0.1:5000/rates?to=2015-07-01T07:00:00-05:00&from=2015-07-01T12:00:").text
+```
+>>> requests.get("http://bhuj2000.pythonanywhere.com/rates?to=2015-07-01T07:00:00-05:00&from=2015-07-01T12:00:").text
 u'{"error":"start, end query parameters must be in valid ISO-8601 dates"}\n'
 ```
 
@@ -132,7 +133,7 @@ Payload Example:
 Valid Payload:
 
 ```
->>> requests.post('http://127.0.0.1:5000/rates', json={
+>>> requests.post('http://bhuj2000.pythonanywhere.com/rates', json={
 ...   "rates": [
 ...     {
 ...       "days": "mon,tues,thurs",
@@ -169,9 +170,9 @@ Valid Payload:
 Invalid Payload 
 
 ```
->>> requests.post("http://127.0.0.1:5000/rates").text
+>>> requests.post("http://bhuj2000.pythonanywhere.com/rates").text
 u'{"error":"Payload must contain \\"rates\\" outer object"}\n'
->>> requests.post("http://127.0.0.1:5000/rates", json={"rates": [{'days': 'tues'}]}).text
+>>> requests.post("http://bhuj2000.pythonanywhere.com/rates", json={"rates": [{'days': 'tues'}]}).text
 u'{"error":"Rates don\'t contain all required information(days, times, tz, price)"}\n'
 ```
 
